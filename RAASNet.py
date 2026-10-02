@@ -1482,10 +1482,10 @@ vV4t+0UE/G5fAN2ccz9Ug6PdAAAAAElFTkSuQmCC''')
         self.dirs.destroy()
 
     def open_github(self):
-        webbrowser.open_new_tab('https://www.github.com/leonv024/RAASNet')
+        webbrowser.open_new_tab('#')
 
     def open_buy(self):
-        webbrowser.open_new_tab('https://raasnet.zeznzo.nl/')
+        webbrowser.open_new_tab('#')
 
     def exit(self):
         sys.exit(0)
