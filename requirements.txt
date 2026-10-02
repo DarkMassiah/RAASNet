@@ -1,0 +1,10 @@
+numpy
+pymsgbox
+pyaes
+pyotp
+pypng
+pyqrcode
+pycryptodome
+pyinstaller
+requests
+pillow
