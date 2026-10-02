@@ -6,11 +6,9 @@ Your Ransomware As A Service (RAAS) Tool for all your hacking needs.
 
 =========================================== INSTALLATION ===========================================
 To use all features of this software, please do:
-
 python3 -m venv myenv
 source myenv/bin/activate
 pip3 install -r requirements.txt
-python3 RAASNet.py
 
 =========================================== PLEASE READ ===========================================
 
@@ -137,7 +135,7 @@ class Login(Tk):
         Tk.__init__(self)
         self.title(string = "Login")
         self.resizable(0,0)
-        self.configure(background = 'black')
+        self.configure(background = 'white')
         self.style = Style()
         self.style.theme_use("clam")
 
@@ -156,7 +154,7 @@ class Login(Tk):
 
         if platform.system() == 'Linux':
             photo = Image.open('images/login_img.png')
-            resized = photo.resize((200,250), Image.LANCZOS)
+            resized = photo.resize((250,250), Image.LANCZOS)
             photo = ImageTk.PhotoImage(resized)
 
             #photo2 = Image.open('images/an.jpg')
@@ -164,7 +162,7 @@ class Login(Tk):
             #photo2 = ImageTk.PhotoImage(resized2)
         else:
             photo = PIL.Image.open('images/login_img.png')
-            resized = photo.resize((200,250), PIL.Image.LANCZOS)
+            resized = photo.resize((250,250), PIL.Image.LANCZOS)
             photo = PIL.ImageTk.PhotoImage(resized)
 
             #photo2 = PIL.Image.open('images/an.jpg')
@@ -177,20 +175,20 @@ class Login(Tk):
 
         label = Label(self, image=photo, background = 'white')
         label.image = photo # keep a reference!
-        label.grid(row = 0, column = 0, columnspan = 2)
+        label.grid(row = 0, column = 0, columnspan = 4)
 
-        Label(self, text = 'Username', background = 'white', foreground = 'black', font='Helvetica 16 bold').grid(row = 1, column = 0, columnspan = 2)
-        self.a = Entry(self, textvariable = self.options['username'], width = 31)
-        self.a.grid(row = 2, column = 0, columnspan = 2)
+        Label(self, text = 'Username', background = 'white', foreground = 'black', font='Helvetica 16 bold').grid(row = 1, column = 0, columnspan = 4)
+        self.a = Entry(self, textvariable = self.options['username'], width = 21)
+        self.a.grid(row = 2, column = 0, columnspan = 4)
         self.a.focus()
 
-        Label(self, text = 'Password', background = 'white', foreground = 'black', font='Helvetica 16 bold').grid(row = 3, column = 0, columnspan = 2)
-        Entry(self, textvariable = self.options['pwd'], show = '*', width = 31).grid(row = 4, column = 0, columnspan = 2)
+        Label(self, text = 'Password', background = 'white', foreground = 'black', font='Helvetica 16 bold').grid(row = 3, column = 0, columnspan = 4)
+        Entry(self, textvariable = self.options['pwd'], show = '*', width = 21).grid(row = 4, column = 0, columnspan = 4)
 
-        login_clk = Button(self, text = 'Login', command = self.login, width = 18).grid(row = 5, column = 0, columnspan = 2, sticky = 'w')
-        register_clk = Button(self, text = 'Register', command = self.register, width = 18).grid(row = 6, column = 0, columnspan = 2, sticky = 'w')
-        close = Button(self, text = 'Exit', command = self.destroy, width = 18).grid(row = 7, column = 0, columnspan = 2, sticky = 'w')
-        contact = Button(self, text = 'Contact', command = self.contact, width = 20).grid(row = 7, column = 2, columnspan = 2, sticky = 'e')
+        login_clk = Button(self, text = 'Login', command = self.login, width = 20).grid(row = 5, column = 2, columnspan = 1, sticky = 'w')
+        register_clk = Button(self, text = 'Register', command = self.register, width = 20).grid(row = 6, column = 2, columnspan = 1, sticky = 'w')
+        close = Button(self, text = 'Exit', command = self.destroy, width = 20).grid(row = 7, column = 2, columnspan = 1, sticky = 'w')
+        #contact = Button(self, text = 'Contact', command = self.contact, width = 20).grid(row = 7, column = 2, columnspan = 2, sticky = 'e')
         self.bind("<Return>", self.login_event) # Press ESC to quit app
 
     def login_event(self, event):
@@ -229,7 +227,7 @@ class Login(Tk):
         '''
         
         prof = {}
-        prof['Username'] = 'mayhem'
+        prof['Username'] = 'ErratumNostra'
         prof['Email']    = 'foobar@example.com'
         prof['Name']     = 'John'
         prof['Surname']  = 'Doe'
@@ -246,7 +244,7 @@ class Login(Tk):
         else:
             return
 
-        webbrowser.open('https://register.zeznzo.nl/')
+        #webbrowser.open('https://register.zeznzo.nl/')
 
         ''' Note: Feature To Be removed in Future version
 
@@ -329,7 +327,7 @@ class Login(Tk):
         #Label(self.contact, text = 'Anonymous', background = 'white').grid(row = 2, column = 1, sticky = 'w')
 
         Label(self.contact, text = 'GitHub: ', background = 'white').grid(row = 3, column = 0, sticky = 'w')
-        Label(self.contact, text = 'ErratumNostra', background = 'white').grid(row = 3, column = 1, sticky = 'w')
+        Label(self.contact, text = 'DarkMassiah', background = 'white').grid(row = 3, column = 1, sticky = 'w')
 
         Label(self.contact, text = 'Email: ', background = 'white').grid(row = 4, column = 0, sticky = 'w')
         Label(self.contact, text = 'mail@example.com', background = 'white').grid(row = 4, column = 1, sticky = 'w')
@@ -677,20 +675,21 @@ vV4t+0UE/G5fAN2ccz9Ug6PdAAAAAElFTkSuQmCC''')
         label.image = photo # keep a reference!
         label.grid(row = 0, column = 0)
 
-        Label(self, text = 'RAASNet Generator', background = 'white', foreground = 'red', font='papyrus 32 bold').grid(row = 1, column = 0)
+        Label(self, text = 'RAASNet', background = 'white', foreground = 'red', font='papyrus 32 bold').grid(row = 1, column = 0)
+        Label(self, text = 'Generator', background = 'white', foreground = 'red', font='papyrus 32 bold').grid(row = 2, column = 0)
 
         # Buttons
-        start_server = Button(self, text = "START SERVER", command = self.open_server, width = 18).grid(row = 2, column = 0)
-        decrypt = Button(self, text = "DECRYPT FILES", command = self.decrypt_files, width = 18).grid(row = 3, column = 0)
+        start_server = Button(self, text = "START SERVER", command = self.open_server, width = 18).grid(row = 3, column = 0)
+        decrypt = Button(self, text = "DECRYPT FILES", command = self.decrypt_files, width = 18).grid(row = 4, column = 0)
 
-        generate_demon = Button(self, text = "GENERATE PAYLOAD", command = self.generate, width = 18).grid(row = 4, column = 0)
-        compile = Button(self, text = "COMPILE PAYLOAD", command = self.compile, width = 18).grid(row = 5, column = 0)
+        generate_demon = Button(self, text = "GENERATE PAYLOAD", command = self.generate, width = 18).grid(row = 5, column = 0)
+        compile = Button(self, text = "COMPILE PAYLOAD", command = self.compile, width = 18).grid(row = 6, column = 0)
 
 
         profile = Button(self, text = "PROFILE", command = self.profile, width = 18)
-        profile.grid(row = 6, column = 0)
+        profile.grid(row = 7, column = 0)
 
-        exit = Button(self, text = "EXIT", command = self.exit, width = 18).grid(row = 7, column = 0)
+        exit = Button(self, text = "EXIT", command = self.exit, width = 18).grid(row = 8, column = 0)
 
     def profile(self):
 
@@ -703,7 +702,7 @@ vV4t+0UE/G5fAN2ccz9Ug6PdAAAAAElFTkSuQmCC''')
 
         if platform.system() == 'Linux':
             photo = Image.open(resource_path('images/decypher_full.png'))
-            resized = photo.resize((900,350), Image.LANCZOS)
+            resized = photo.resize((320,180), Image.LANCZOS)
             photo = ImageTk.PhotoImage(resized)
         else:
             photo = PIL.Image.open(resource_path('images/decypher_full.png'))
@@ -1530,7 +1529,7 @@ vV4t+0UE/G5fAN2ccz9Ug6PdAAAAAElFTkSuQmCC''')
 
     def agree_license(self):
         f = open(sys.argv[0], 'r').read()
-        f = f.replace("#<activate>", "self.options['agreed'].set(1)", 1)
+        f = f.replace("self.options['agreed'].set(1)", "self.options['agreed'].set(1)", 1)
         with open(sys.argv[0], 'w') as w:
             w.write(f)
             w.close()
