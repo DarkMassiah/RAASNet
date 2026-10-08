@@ -21,7 +21,7 @@ pip3 install -r requirements.txt
 __author__ = "Anonymous"
 __copyright__ = "Copyright 2026-2027, Decypher"
 __license__ = "GPLv3"
-__version__ = "2.3.1"
+__version__ = "2.4.1"
 __maintainer__ = "Anonymous"
 __email__ = "None"
 __status__ = "Production"
@@ -807,38 +807,38 @@ vV4t+0UE/G5fAN2ccz9Ug6PdAAAAAElFTkSuQmCC''')
         #photo = PIL.ImageTk.PhotoImage(PIL.Image.open(BytesIO(base64.b64decode(photo_code))))
         if platform.system() == 'Linux':
             photo1 = Image.open(resource_path('images/windows.png'))
-            resized = photo1.resize((100,100), Image.LANCZOS)
+            resized = photo1.resize((60,60), Image.LANCZOS)
             photo1 = ImageTk.PhotoImage(resized)
         else:
             photo1 = PIL.Image.open(resource_path('images/windows.png'))
-            resized = photo1.resize((100,100), PIL.Image.LANCZOS)
+            resized = photo1.resize((60,60), PIL.Image.LANCZOS)
             photo1 = PIL.ImageTk.PhotoImage(resized)
 
         if platform.system() == 'Linux':
             photo2 = Image.open(resource_path('images/mac.png'))
-            resized = photo2.resize((100,100), Image.LANCZOS)
+            resized = photo2.resize((60,60), Image.LANCZOS)
             photo2 = ImageTk.PhotoImage(resized)
         else:
             photo2 = PIL.Image.open(resource_path('images/mac.png'))
-            resized = photo2.resize((100,100), PIL.Image.LANCZOS)
+            resized = photo2.resize((60,60), PIL.Image.LANCZOS)
             photo2 = PIL.ImageTk.PhotoImage(resized)
 
         if platform.system() == 'Linux':
             photo3 = Image.open(resource_path('images/linux.png'))
-            resized = photo3.resize((100,100), Image.LANCZOS)
+            resized = photo3.resize((60,60), Image.LANCZOS)
             photo3 = ImageTk.PhotoImage(resized)
         else:
             photo3 = PIL.Image.open(resource_path('images/linux.png'))
-            resized = photo3.resize((100,100), PIL.Image.LANCZOS)
+            resized = photo3.resize((60,60), PIL.Image.LANCZOS)
             photo3 = PIL.ImageTk.PhotoImage(resized)
 
         if platform.system() == 'Linux':
             photo4 = Image.open(resource_path('images/other.png'))
-            resized = photo4.resize((100,100), Image.LANCZOS)
+            resized = photo4.resize((60,60), Image.LANCZOS)
             photo4 = ImageTk.PhotoImage(resized)
         else:
             photo4 = PIL.Image.open(resource_path('images/other.png'))
-            resized = photo4.resize((100,100), PIL.Image.LANCZOS)
+            resized = photo4.resize((60,60), PIL.Image.LANCZOS)
             photo4 = PIL.ImageTk.PhotoImage(resized)
 
         label = Label(self.serv, image=photo1, background = 'white')
@@ -1329,7 +1329,7 @@ vV4t+0UE/G5fAN2ccz9Ug6PdAAAAAElFTkSuQmCC''')
         self.server_socket.bind((host, port))
         self.server_socket.listen(10)
 
-        self.insert_banner()
+        #self.insert_banner()
         self.serv.options['log'].insert('1.0', "Server started on port [%s] [%s]\nWaiting...\n" % (host, int(port)), 'deeppink')
 
         try:

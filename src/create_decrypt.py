@@ -10,7 +10,7 @@ from pymsgbox import *
 <type>
 
 def dec_key():
-    key = password(text='Please enter your decryption key', title='Enter Key', mask ='*')
+    key = prompt(text='Please enter your decryption key', title='Enter Key')
     if key == None or key == '':
         messagebox.showwarning('Error', 'No key given. Canceled...')
         sys.exit(1)

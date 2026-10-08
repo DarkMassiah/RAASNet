@@ -31,7 +31,7 @@ def poly(not_encoded_payload):
         "X": gen_string(),
         "Y": gen_string(),
         "Z": gen_string(),
-        # Exclamation mark for lowercase because python is case sensative.
+        # Lower case
         "a": gen_string(),
         "b": gen_string(),
         "c": gen_string(),
@@ -83,8 +83,20 @@ def poly(not_encoded_payload):
         "-": gen_string(),
         "(": gen_string(),
         ")": gen_string(),
-        # Exclamation mark is not in ITU-R recommendation
         "!": gen_string(),
+        "{": gen_string(),
+        "}": gen_string(),
+        "$": gen_string(),
+        "*": gen_string(),
+        "\\": gen_string(),
+        "%": gen_string(),
+        ";": gen_string(),
+        "[": gen_string(),
+        "]": gen_string(),
+        " ": gen_string(),
+        "\n": gen_string(),
+        "_": gen_string(),
+        "#": gen_string(),
     }
 
 
@@ -120,7 +132,8 @@ def poly(not_encoded_payload):
 
     for line in payload:
         if not line.startswith('import '):
-            line = line.replace('{', 'OOOO').replace('}', 'PPPP').replace('$', 'LLLL').replace('*', '0000').replace('\\', '1111').replace('%', 'AAAA').replace(';', 'BBBB').replace('[', 'CCCC').replace(']', 'DDDD').replace(' ', '5555').replace('\n', '6666').replace('_', '7777').replace('#', '8888').strip()
+            #line = line.strip()
+            #line = line.replace('{', 'OOOO').replace('}', 'PPPP').replace('$', 'LLLL').replace('*', '0000').replace('\\', '1111').replace('%', 'AAAA').replace(';', 'BBBB').replace('[', 'CCCC').replace(']', 'DDDD').replace(' ', '5555').replace('\n', '6666').replace('_', '7777').replace('#', '8888').strip()
             if not line.startswith('from '):
                 result = encode(line)
                 code.append(result)
@@ -158,7 +171,6 @@ POLY_CODE_DICT = {
     "X": "%s",
     "Y": "%s",
     "Z": "%s",
-
     "a": "%s",
     "b": "%s",
     "c": "%s",
@@ -185,7 +197,6 @@ POLY_CODE_DICT = {
     "x": "%s",
     "y": "%s",
     "z": "%s",
-
     "1": "%s",
     "2": "%s",
     "3": "%s",
@@ -210,8 +221,20 @@ POLY_CODE_DICT = {
     "-": "%s",
     "(": "%s",
     ")": "%s",
-
     "!": "%s",
+    "{": "%s",
+    "}": "%s",
+    "$": "%s",
+    "*": "%s",
+    "\\\\": "%s",
+    "%%": "%s",
+    ";": "%s",
+    "[": "%s",
+    "]": "%s",
+    " ": "%s",
+    "\\n": "%s",
+    "_": "%s",
+    "#": "%s",
 }
 
 def decode(message: str) -> str:
@@ -234,8 +257,7 @@ for i in ex:
         roses +=result
     else:
         roses +=' '
-exec(roses.replace('OOOO', '{').replace('PPPP', '}').replace('LLLL', '$').replace('0000', '*').replace('1111', '\\\\').replace('7777', '_').replace('8888', '#').replace('AAAA', '%%').replace('BBBB', ';').replace('CCCC', '[').replace('DDDD', ']').replace('5555', ' ').replace('6666', '\\n'))
-''' % (imports,
+exec(roses)''' % (imports,
     POLY_CODE_DICT["A"], 
     POLY_CODE_DICT["B"], 
     POLY_CODE_DICT["C"], 
@@ -312,7 +334,20 @@ exec(roses.replace('OOOO', '{').replace('PPPP', '}').replace('LLLL', '$').replac
     POLY_CODE_DICT["-"], 
     POLY_CODE_DICT["("], 
     POLY_CODE_DICT[")"], 
-    POLY_CODE_DICT["!"], 
+    POLY_CODE_DICT["!"],
+    POLY_CODE_DICT["{"], 
+    POLY_CODE_DICT["}"], 
+    POLY_CODE_DICT["$"], 
+    POLY_CODE_DICT["*"], 
+    POLY_CODE_DICT["\\"], 
+    POLY_CODE_DICT["%"], 
+    POLY_CODE_DICT[";"], 
+    POLY_CODE_DICT["["], 
+    POLY_CODE_DICT["]"], 
+    POLY_CODE_DICT[" "], 
+    POLY_CODE_DICT["\n"], 
+    POLY_CODE_DICT["_"], 
+    POLY_CODE_DICT["#"],  
     code)
 
     with open('./poly_payload.py', 'w') as f:
